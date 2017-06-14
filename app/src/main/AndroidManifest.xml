@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="borcha.com.testglumcibor">
+    package="borcha.com.testglumci">
 
     <application
         android:allowBackup="true"

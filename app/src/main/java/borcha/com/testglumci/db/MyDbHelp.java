@@ -1,4 +1,4 @@
-package borcha.com.testglumcibor.db;
+package borcha.com.testglumci.db;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -11,8 +11,8 @@ import com.j256.ormlite.table.TableUtils;
 
 import java.sql.SQLException;
 
-import borcha.com.testglumcibor.db.dbmodel.Film;
-import borcha.com.testglumcibor.db.dbmodel.Glumac;
+import borcha.com.testglumci.db.dbmodel.Film;
+import borcha.com.testglumci.db.dbmodel.Glumac;
 
 
 /**

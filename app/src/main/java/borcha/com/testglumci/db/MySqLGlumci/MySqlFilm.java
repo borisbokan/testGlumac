@@ -1,4 +1,4 @@
-package borcha.com.testglumcibor.db.MySqLGlumci;
+package borcha.com.testglumci.db.MySqLGlumci;
 
 import android.content.Context;
 
@@ -6,8 +6,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import borcha.com.glumci.db.MyDbHelp;
-import borcha.com.glumci.db.dbmodel.Film;
+import borcha.com.testglumci.db.MyDbHelp;
+import borcha.com.testglumci.db.dbmodel.Film;
+
 
 /**
  * Created by borcha on 02.06.17..

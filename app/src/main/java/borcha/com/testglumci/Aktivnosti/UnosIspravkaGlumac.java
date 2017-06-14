@@ -1,4 +1,4 @@
-package borcha.com.testglumcibor.Aktivnosti;
+package borcha.com.testglumci.Aktivnosti;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,9 +9,9 @@ import android.widget.EditText;
 
 import java.util.Date;
 
-import borcha.com.testglumcibor.R;
-import borcha.com.testglumcibor.db.MySqLGlumci.MySqlGlumac;
-import borcha.com.testglumcibor.db.dbmodel.Glumac;
+import borcha.com.testglumci.db.MySqLGlumci.MySqlGlumac;
+import borcha.com.testglumci.db.dbmodel.Glumac;
+import borcha.com.testglumci.R;
 
 /**
  * Created by androiddevelopment on 13.6.17..

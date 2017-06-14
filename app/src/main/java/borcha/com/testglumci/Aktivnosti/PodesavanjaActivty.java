@@ -1,10 +1,10 @@
-package borcha.com.testglumcibor.Aktivnosti;
+package borcha.com.testglumci.Aktivnosti;
 
 import android.os.Bundle;
 import android.preference.CheckBoxPreference;
 import android.preference.PreferenceActivity;
 
-import borcha.com.testglumcibor.R;
+import borcha.com.testglumci.R;
 
 
 /**

@@ -1,4 +1,4 @@
-package borcha.com.testglumcibor.Adapteri;
+package borcha.com.testglumci.Adapteri;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
@@ -10,8 +10,8 @@ import android.widget.TextView;
 
 import java.util.List;
 
-import borcha.com.testglumcibor.R;
-import borcha.com.testglumcibor.db.dbmodel.Glumac;
+import borcha.com.testglumci.R;
+import borcha.com.testglumci.db.dbmodel.Glumac;
 
 
 /**

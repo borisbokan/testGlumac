@@ -1,4 +1,4 @@
-package borcha.com.testglumcibor.pomocne;
+package borcha.com.testglumci.pomocne;
 
 import android.app.AlertDialog;
 import android.content.Context;

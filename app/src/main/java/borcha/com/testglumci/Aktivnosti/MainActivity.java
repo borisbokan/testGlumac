@@ -1,4 +1,4 @@
-package borcha.com.testglumcibor.Aktivnosti;
+package borcha.com.testglumci.Aktivnosti;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -13,10 +13,10 @@ import android.widget.ListView;
 import java.util.Date;
 import java.util.List;
 
-import borcha.com.testglumcibor.Adapteri.AdapterGlumci;
-import borcha.com.testglumcibor.R;
-import borcha.com.testglumcibor.db.MySqLGlumci.MySqlGlumac;
-import borcha.com.testglumcibor.db.dbmodel.Glumac;
+import borcha.com.testglumci.Adapteri.AdapterGlumci;
+import borcha.com.testglumci.R;
+import borcha.com.testglumci.db.MySqLGlumci.MySqlGlumac;
+import borcha.com.testglumci.db.dbmodel.Glumac;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -86,9 +86,11 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
 
         int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+
+           Intent inPodesa=new Intent(this,PodesavanjaActivty.class);
+           startActivity(inPodesa);
+
             return true;
         }
 
