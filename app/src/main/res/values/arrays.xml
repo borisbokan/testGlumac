@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name="zanr">
+        <item>Komedija</item>
+        <item>Dokumentarni</item>
+        <item>Triler</item>
+        <item>Horor</item>
+        <item>Deciji film</item>
+        <item>Animirani</item>
+        <item>Ostalo</item>
+
+
+
+
+    </array>
+
+
+</resources>

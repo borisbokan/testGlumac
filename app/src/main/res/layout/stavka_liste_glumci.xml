@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/txvPrezimeImeGlumca_lista"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="7dp"
+        android:gravity="center_vertical"
+        android:hint="Prezime, Ime glumca"
+        android:padding="7dp"
+        android:textSize="24sp"
+        android:textStyle="normal|bold" />
+
+    <TextView
+        android:id="@+id/txtDatumRodjenja_lista"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="15dp"
+        android:gravity="start"
+        android:hint="datum rodjenja: 1959"
+        android:paddingLeft="22dp"
+        android:paddingRight="10dp"
+        android:textSize="14sp"
+        android:textStyle="normal|italic" />
+</LinearLayout>
