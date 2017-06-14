@@ -11,8 +11,8 @@ import com.j256.ormlite.table.TableUtils;
 
 import java.sql.SQLException;
 
-import borcha.com.glumci.db.dbmodel.Film;
-import borcha.com.glumci.db.dbmodel.Glumac;
+import borcha.com.testglumcibor.db.dbmodel.Film;
+import borcha.com.testglumcibor.db.dbmodel.Glumac;
 
 
 /**

@@ -21,7 +21,7 @@
         </activity>
 
         <activity
-            android:name=".Aktivnosti.UnosIspravkaFilma"
+            android:name=".Aktivnosti.UnosIspravkaGlumac"
             android:label="@string/unos_ispravka_glumca">
 
 

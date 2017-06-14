@@ -8,10 +8,11 @@ import com.j256.ormlite.stmt.Where;
 import java.sql.SQLException;
 import java.util.List;
 
-import borcha.com.glumci.db.MyDbHelp;
-import borcha.com.glumci.db.dbmodel.Film;
-import borcha.com.glumci.db.dbmodel.Glumac;
-import borcha.com.glumci.pomocne.infoPoruka;
+import borcha.com.testglumcibor.db.MyDbHelp;
+import borcha.com.testglumcibor.db.dbmodel.Film;
+import borcha.com.testglumcibor.db.dbmodel.Glumac;
+import borcha.com.testglumcibor.pomocne.infoPoruka;
+
 
 /**
  * Created by borcha on 02.06.17..
@@ -47,16 +48,20 @@ public class MySqlGlumac extends MyDbHelp {
 
     //*************************operaciej nad bazom *****************************************************
 
-    /**
-     * Update jela
-     */
-    public void updateGlumac() throws SQLException {
+
+    public void updateGlumac() {
+
+        int rez=0;
+
         if(getId()!=0){
-            //TODO. Uraditi Sql upit za update
-            int rez=getDaoGlumac().updateId(glumac,getId());
+
+            try {
+                 rez=getDaoGlumac().updateId(glumac,getId());
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
 
 
-          
         }else{
             infoPoruka.newInstance(cont,"Poruka o gresci","Ne postoji ID zapisa!. Ne mozete prepraviti podatak za Glumac");
 
