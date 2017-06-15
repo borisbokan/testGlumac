@@ -37,8 +37,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPersonName"
-            android:text="Ime" />
+            android:hint="Ime"
+            android:inputType="textPersonName" />
 
         <DatePicker
             android:id="@+id/dpDatumRodjenja_unosispravka"

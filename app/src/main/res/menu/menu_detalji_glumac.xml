@@ -2,7 +2,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <item android:id="@+id/dodaj_glumca"
+    <item android:id="@+id/dodaj_film"
         android:title="@string/dodaj_glumca"
         android:icon="@mipmap/ic_dodaj_glumca" app:showAsAction="ifRoom">
 

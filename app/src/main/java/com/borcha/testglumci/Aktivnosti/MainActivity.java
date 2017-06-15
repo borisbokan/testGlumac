@@ -27,6 +27,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
     private ListView lsGlumci;
     private Glumac selGlumac;
+    private AdapterGlumci adGlumci;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -90,9 +91,6 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         }
 
 
-
-
-
     }
 
 
@@ -107,12 +105,16 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     public boolean onOptionsItemSelected(MenuItem item) {
 
         int id = item.getItemId();
-        if (id == R.id.action_settings) {
+        switch (id) {
+            case R.id.action_settings:
+               Intent inPodesa=new Intent(this,PodesavanjaActivty.class);
+               startActivity(inPodesa);
 
-           Intent inPodesa=new Intent(this,PodesavanjaActivty.class);
-           startActivity(inPodesa);
+                return super.onOptionsItemSelected(item);
 
-            return true;
+            case R.id.action_osvezi:
+                  ucitajListuGlumaca();
+                return super.onOptionsItemSelected(item);
         }
 
         return super.onOptionsItemSelected(item);
@@ -123,7 +125,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
 
         MySqlGlumac dbglumac=new MySqlGlumac(this);
         List<Glumac> glumci=dbglumac.getSviGlumci();
-        AdapterGlumci adGlumci=new AdapterGlumci(this,glumci);
+        adGlumci=new AdapterGlumci(this,glumci);
 
 
         lsGlumci.setAdapter(adGlumci);
@@ -140,4 +142,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
         intDetlji.putExtra("id_glumac",selGlumac.getId());
         startActivity(intDetlji);
     }
+
+
+
 }

@@ -39,7 +39,7 @@ public class UnosIspravkaGlumac extends AppCompatActivity implements View.OnClic
         idGlumac=getIntent().getIntExtra("id_glumac",0);
 
         etxtPrezimeIme=(EditText)findViewById(R.id.etxtPrezime_unosispravka);
-        etxtIme=(EditText)findViewById(R.id.etxtPrezime_unosispravka);
+        etxtIme=(EditText)findViewById(R.id.etxtIme_unosispravka);
         datumRodjenja=(DatePicker)findViewById(R.id.dpDatumRodjenja_unosispravka);
 
         btnSnimi=(Button)findViewById(R.id.btnSnimi_unosispravka);
@@ -110,6 +110,8 @@ public class UnosIspravkaGlumac extends AppCompatActivity implements View.OnClic
 
         MySqlGlumac dbglumac=new MySqlGlumac(this);
         dbglumac.setGlumac(novglumac);
+
+        dbglumac.snimiNovoGlumac(novglumac);
 
     }
 }

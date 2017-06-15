@@ -1,5 +1,6 @@
 package com.borcha.testglumci.Aktivnosti;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -12,6 +13,7 @@ import android.widget.Toast;
 
 import com.borcha.testglumci.R;
 import com.borcha.testglumci.db.MySqLGlumci.MySqlFilm;
+import com.borcha.testglumci.db.MySqLGlumci.MySqlGlumac;
 import com.borcha.testglumci.db.dbmodel.Film;
 import com.borcha.testglumci.db.dbmodel.Glumac;
 
@@ -36,7 +38,8 @@ public class DetaljiGlumac extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detalji_glumca);
         idGlumac=getIntent().getIntExtra("id_glumac",0);
-        savedInstanceState.putInt("id_glumac",idGlumac);
+        getGlumacPoId(idGlumac);
+        //savedInstanceState.putInt("id_glumac",idGlumac);
 
         txvPrezimeIme=(TextView)findViewById(R.id.txvPrezimeIme_detalji);
         txvDatumRodjenja=(TextView)findViewById(R.id.txvDatumRodjenja_detalji);
@@ -45,6 +48,13 @@ public class DetaljiGlumac extends AppCompatActivity {
 
         setujPodatkeGlumcaNaOsnovuID();
 
+
+    }
+
+    private void getGlumacPoId(int _id){
+
+        MySqlGlumac dbglumac=new MySqlGlumac(this);
+        this.glumac=dbglumac.getGlumacPoId(_id);
 
     }
 
@@ -83,20 +93,28 @@ public class DetaljiGlumac extends AppCompatActivity {
 
         switch (item.getItemId()){
 
-            case R.id.dodaj_glumca:
-                Toast.makeText(this,"Kliknuo dodaj  lumaca",Toast.LENGTH_SHORT).show();
+            case R.id.dodaj_film:
+
+                Intent inUnoIspFilm=new Intent(this,UnosIspravkaGlumac.class);
+                inUnoIspFilm.putExtra("operacija",UnosIspravkaFilma.TIPOPERACIJE_NOVO);
+                startActivity(inUnoIspFilm);
                 return super.onOptionsItemSelected(item);
 
 
             case R.id.ispravi_glumca:
 
-                Toast.makeText(this,"Kliknuo ispravi glumaca",Toast.LENGTH_SHORT).show();
+                Intent inIspravkaGlu=new Intent(this,UnosIspravkaGlumac.class);
+                inIspravkaGlu.putExtra("operacija",UnosIspravkaGlumac.TIPOPERACIJE_ISPRAVI);
+                inIspravkaGlu.putExtra("id_glumac",idGlumac);
+
                 return super.onOptionsItemSelected(item);
 
 
             case R.id.obrisi_glumca:
 
-                Toast.makeText(this,"Kliknuo obrisi glumaca",Toast.LENGTH_SHORT).show();
+               MySqlGlumac dbglumac=new MySqlGlumac(this,glumac);
+                dbglumac.obrisiGlumac();
+
                 return super.onOptionsItemSelected(item);
 
 
