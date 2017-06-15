@@ -1,13 +1,18 @@
-package borcha.com.testglumci.db.MySqLGlumci;
+package com.borcha.testglumci.db.MySqLGlumci;
 
 import android.content.Context;
+import android.content.Intent;
 
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import borcha.com.testglumci.db.MyDbHelp;
-import borcha.com.testglumci.db.dbmodel.Film;
+import com.borcha.testglumci.db.MyDbHelp;
+import com.borcha.testglumci.db.dbmodel.Film;
+import com.borcha.testglumci.db.dbmodel.Glumac;
+import com.j256.ormlite.stmt.QueryBuilder;
+import com.j256.ormlite.stmt.Where;
+import com.j256.ormlite.stmt.query.In;
 
 
 /**
@@ -127,6 +132,22 @@ public class MySqlFilm extends MyDbHelp {
     }
 
 
+
+    //Trazi vrednost jela po ID zapisu
+    public List<Film> getFilmoviPoGlumcu(Glumac _glumac) {
+        List<Film> filmovi=null;
+        try {
+
+            QueryBuilder<Film,Integer> query=getDaoFilm().queryBuilder();
+            Where<Film,Integer> where=query.where().idEq(getDaoGlumac(),_glumac);
+            filmovi= where.query();
+
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return filmovi;
+    }
 
 
     public int getId() {

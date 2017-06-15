@@ -1,4 +1,4 @@
-package borcha.com.testglumci.db.dbmodel;
+package com.borcha.testglumci.db.dbmodel;
 
 import com.j256.ormlite.dao.ForeignCollection;
 import com.j256.ormlite.field.DatabaseField;
@@ -40,7 +40,6 @@ public class Glumac {
     ForeignCollection<Film> filmovi;
 
 
-
     public Glumac() { }
 
     public Glumac( String _ime, String _prezime, Date _datumRodjenja, float _rejting) {
@@ -49,9 +48,7 @@ public class Glumac {
         this.datumRodjenja = _datumRodjenja;
         this.rejting=_rejting;
 
-
     }
-
 
     public int getId() {
         return id;
@@ -100,10 +97,6 @@ public class Glumac {
 
     public void setRejting(float rejting) {
         this.rejting = rejting;
-    }
-
-    public void addFilm(Film _film){
-        this.filmovi.add(_film);
     }
 
     public ForeignCollection<Film> getFilmovi() {

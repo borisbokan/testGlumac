@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="borcha.com.testglumci">
+    package="com.borcha.testglumci">
 
     <application
         android:allowBackup="true"
@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".Aktivnosti.MainActivity"
+            android:name="com.borcha.testglumci.Aktivnosti.MainActivity"
             android:label="@string/app_name"
             android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
@@ -21,16 +21,16 @@
         </activity>
 
         <activity
-            android:name=".Aktivnosti.UnosIspravkaGlumac"
+            android:name="com.borcha.testglumci.Aktivnosti.UnosIspravkaGlumac"
             android:label="@string/unos_ispravka_glumca">
 
 
         </activity>
 
         //Podesavanja
-        <activity android:name="Aktivnosti.PodesavanjaActivty"
+        <activity android:name="com.borcha.testglumci.Aktivnosti.PodesavanjaActivty"
             android:label="@string/podesavanja"
-            android:parentActivityName=".Aktivnosti.MainActivity"/>
+            android:parentActivityName="com.borcha.testglumci.Aktivnosti.MainActivity"/>
     </application>
 
 </manifest>

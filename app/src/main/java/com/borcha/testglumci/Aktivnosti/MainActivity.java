@@ -1,4 +1,4 @@
-package borcha.com.testglumci.Aktivnosti;
+package com.borcha.testglumci.Aktivnosti;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,28 +8,36 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.Date;
 import java.util.List;
 
-import borcha.com.testglumci.Adapteri.AdapterGlumci;
-import borcha.com.testglumci.R;
-import borcha.com.testglumci.db.MySqLGlumci.MySqlGlumac;
-import borcha.com.testglumci.db.dbmodel.Glumac;
+import com.borcha.testglumci.Adapteri.AdapterGlumci;
+import com.borcha.testglumci.R;
+import com.borcha.testglumci.db.MySqLGlumci.MySqlFilm;
+import com.borcha.testglumci.db.MySqLGlumci.MySqlGlumac;
+import com.borcha.testglumci.db.dbmodel.Film;
+import com.borcha.testglumci.db.dbmodel.Glumac;
 
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
 
     private ListView lsGlumci;
+    private Glumac selGlumac;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        lsGlumci=(ListView)findViewById(R.id.lvGlumci);
+        lsGlumci.setOnItemClickListener(this);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -52,32 +60,45 @@ public class MainActivity extends AppCompatActivity {
     //Napraviti bazu i pocetne vrednosti
     private void inicirajPocetneVrednosti() {
 
-        Glumac startGlumac=new Glumac();
-        startGlumac.setPrezime("Damon");
-        startGlumac.setIme("Matt");
-        startGlumac.setDatumRodjenja(new Date());
-        startGlumac.setBiografija("Metju Pejdž Dejmon (engl. Matthew Paige Damon) američki je glumac i scenarista, rođen 8. oktobra 1970. godine u Kembridžu (Masačusets).");
-
-       /* Film film1=new Film();
-        film1.setNaziv("Film 1");
-        film1.setZanr("Akcioni");//iz arrays
-
-        Film film2=new Film();
-        film1.setNaziv("Film 2");
-        film1.setZanr("Horor");//iz arrays
-
-        startGlumac.addFilm(film1);
-        startGlumac.addFilm(film2);*/
-
         MySqlGlumac dbglumac=new MySqlGlumac(this);
-        dbglumac.setGlumac(startGlumac);
+
+        if(dbglumac.getBrojGlumaca()<1){
+            Glumac startGlumac=new Glumac();
+            startGlumac.setPrezime("Damon");
+            startGlumac.setIme("Matt");
+            startGlumac.setDatumRodjenja(new Date());
+            startGlumac.setBiografija("Metju Pejdž Dejmon (engl. Matthew Paige Damon) američki je glumac i scenarista, rođen 8. oktobra 1970. godine u Kembridžu (Masačusets).");
+
+            Film film1=new Film();
+            film1.setNaziv("Film 1");
+            film1.setZanr("Akcioni");//iz arrays
+            film1.setGlumac(startGlumac);
+
+            Film film2=new Film();
+            film1.setNaziv("Film 2");
+            film1.setZanr("Horor");//iz arrays
+            film2.setGlumac(startGlumac);
+            MySqlFilm dbfilm=new MySqlFilm(this);
+            dbfilm.snimiNoviFilm(film1);
+            dbfilm.snimiNoviFilm(film2);
+
+
+
+            dbglumac.setGlumac(startGlumac);
+
+            Toast.makeText(this,"Test" + dbglumac.getBrojGlumaca(),Toast.LENGTH_LONG).show();
+        }
+
+
+
+
 
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
+        menu.clear();
         getMenuInflater().inflate(R.menu.osnovni_meni, menu);
         return true;
     }
@@ -103,10 +124,20 @@ public class MainActivity extends AppCompatActivity {
         MySqlGlumac dbglumac=new MySqlGlumac(this);
         List<Glumac> glumci=dbglumac.getSviGlumci();
         AdapterGlumci adGlumci=new AdapterGlumci(this,glumci);
-        lsGlumci=(ListView)findViewById(R.id.lvGlumci);
+
 
         lsGlumci.setAdapter(adGlumci);
 
 
+    }
+
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+        selGlumac=(Glumac)parent.getItemAtPosition(position);
+
+        Intent intDetlji=new Intent(this,DetaljiGlumac.class);
+        intDetlji.putExtra("id_glumac",selGlumac.getId());
+        startActivity(intDetlji);
     }
 }

@@ -1,4 +1,4 @@
-package borcha.com.testglumcibor;
+package com.borcha.testglumcibor;
 
 import org.junit.Test;
 

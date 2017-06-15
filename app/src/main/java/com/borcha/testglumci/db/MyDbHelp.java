@@ -1,4 +1,4 @@
-package borcha.com.testglumci.db;
+package com.borcha.testglumci.db;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -11,8 +11,8 @@ import com.j256.ormlite.table.TableUtils;
 
 import java.sql.SQLException;
 
-import borcha.com.testglumci.db.dbmodel.Film;
-import borcha.com.testglumci.db.dbmodel.Glumac;
+import com.borcha.testglumci.db.dbmodel.Film;
+import com.borcha.testglumci.db.dbmodel.Glumac;
 
 
 /**
@@ -79,7 +79,7 @@ public class MyDbHelp extends OrmLiteSqliteOpenHelper {
     public Dao<Film,Integer> getDaoFilm() throws SQLException {
 
         if(daoFilm==null){
-            daoFilm=getDaoFilm();
+            daoFilm=getDao(Film.class);
         }
 
         return daoFilm;

@@ -1,4 +1,4 @@
-package borcha.com.testglumci.pomocne;
+package com.borcha.testglumci.pomocne;
 
 import android.util.Log;
 

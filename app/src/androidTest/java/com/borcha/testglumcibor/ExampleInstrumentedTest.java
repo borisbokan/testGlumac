@@ -1,4 +1,4 @@
-package borcha.com.testglumcibor;
+package com.borcha.testglumcibor;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

@@ -1,4 +1,4 @@
-package borcha.com.testglumci.Aktivnosti;
+package com.borcha.testglumci.Aktivnosti;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -9,9 +9,9 @@ import android.widget.EditText;
 
 import java.util.Date;
 
-import borcha.com.testglumci.db.MySqLGlumci.MySqlGlumac;
-import borcha.com.testglumci.db.dbmodel.Glumac;
-import borcha.com.testglumci.R;
+import com.borcha.testglumci.db.MySqLGlumci.MySqlGlumac;
+import com.borcha.testglumci.db.dbmodel.Glumac;
+import com.borcha.testglumci.R;
 
 /**
  * Created by androiddevelopment on 13.6.17..
@@ -22,7 +22,7 @@ public class UnosIspravkaGlumac extends AppCompatActivity implements View.OnClic
     public static final int TIPOPERACIJE_NOVO=0;//Ukoliko dolazimo sa novim ulazom
     public static final int TIPOPERACIJE_ISPRAVI=1;//Ukoliko dolazimo da ispravimo podatak
 
-    EditText etxtPrezimeIme,etxtIme;
+    EditText etxtPrezimeIme,etxtIme,etxtBiografija;
     DatePicker datumRodjenja;
     Button btnSnimi,btnOdustajem;
 

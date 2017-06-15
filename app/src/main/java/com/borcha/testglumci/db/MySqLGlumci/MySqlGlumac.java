@@ -1,4 +1,4 @@
-package borcha.com.testglumci.db.MySqLGlumci;
+package com.borcha.testglumci.db.MySqLGlumci;
 
 import android.content.Context;
 
@@ -8,10 +8,10 @@ import com.j256.ormlite.stmt.Where;
 import java.sql.SQLException;
 import java.util.List;
 
-import borcha.com.testglumci.db.MyDbHelp;
-import borcha.com.testglumci.db.dbmodel.Film;
-import borcha.com.testglumci.db.dbmodel.Glumac;
-import borcha.com.testglumci.pomocne.infoPoruka;
+import com.borcha.testglumci.db.MyDbHelp;
+import com.borcha.testglumci.db.dbmodel.Film;
+import com.borcha.testglumci.db.dbmodel.Glumac;
+import com.borcha.testglumci.pomocne.infoPoruka;
 
 
 /**
