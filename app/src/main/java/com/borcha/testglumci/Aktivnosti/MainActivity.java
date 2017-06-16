@@ -21,6 +21,8 @@ import com.borcha.testglumci.db.MySqLGlumci.MySqlFilm;
 import com.borcha.testglumci.db.MySqLGlumci.MySqlGlumac;
 import com.borcha.testglumci.db.dbmodel.Film;
 import com.borcha.testglumci.db.dbmodel.Glumac;
+import com.borcha.testglumci.pomocne.DialogInfo;
+import com.borcha.testglumci.pomocne.infoPoruka;
 
 
 public class MainActivity extends AppCompatActivity implements AdapterView.OnItemClickListener {
@@ -67,6 +69,7 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             Glumac startGlumac=new Glumac();
             startGlumac.setPrezime("Damon");
             startGlumac.setIme("Matt");
+            startGlumac.setRejting(4.40f);
             startGlumac.setDatumRodjenja(new Date());
             startGlumac.setBiografija("Metju Pejdž Dejmon (engl. Matthew Paige Damon) američki je glumac i scenarista, rođen 8. oktobra 1970. godine u Kembridžu (Masačusets).");
 
@@ -79,10 +82,11 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
             film1.setNaziv("Film 2");
             film1.setZanr("Horor");//iz arrays
             film2.setGlumac(startGlumac);
-            MySqlFilm dbfilm=new MySqlFilm(this);
-            dbfilm.snimiNoviFilm(film1);
-            dbfilm.snimiNoviFilm(film2);
 
+            MySqlFilm dbfilm1=new MySqlFilm(this);
+            dbfilm1.snimiNoviFilm(film1);
+            MySqlFilm dbfilm2=new MySqlFilm(this);
+            dbfilm2.snimiNoviFilm(film2);
 
 
             dbglumac.setGlumac(startGlumac);
@@ -111,6 +115,9 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
                startActivity(inPodesa);
 
                 return super.onOptionsItemSelected(item);
+            case R.id.action_oaplikaciji:
+                DialogInfo.newInstance(this,"O aplikciji","Zavrsna aplikacija\n Bokan Boris AAD - 007");
+                return super.onOptionsItemSelected(item);
 
             case R.id.action_osvezi:
                   ucitajListuGlumaca();
@@ -121,12 +128,12 @@ public class MainActivity extends AppCompatActivity implements AdapterView.OnIte
     }
 
 
+
     private void ucitajListuGlumaca(){
 
         MySqlGlumac dbglumac=new MySqlGlumac(this);
         List<Glumac> glumci=dbglumac.getSviGlumci();
         adGlumci=new AdapterGlumci(this,glumci);
-
 
         lsGlumci.setAdapter(adGlumci);
 

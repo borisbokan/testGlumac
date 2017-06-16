@@ -2,6 +2,7 @@
 <resources>
 
     <array name="zanr">
+        <item>-</item>
         <item>Komedija</item>
         <item>Dokumentarni</item>
         <item>Triler</item>

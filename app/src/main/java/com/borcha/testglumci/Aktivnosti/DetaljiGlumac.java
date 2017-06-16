@@ -9,8 +9,6 @@ import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
-
 import com.borcha.testglumci.R;
 import com.borcha.testglumci.db.MySqLGlumci.MySqlFilm;
 import com.borcha.testglumci.db.MySqLGlumci.MySqlGlumac;
@@ -95,9 +93,11 @@ public class DetaljiGlumac extends AppCompatActivity {
 
             case R.id.dodaj_film:
 
-                Intent inUnoIspFilm=new Intent(this,UnosIspravkaGlumac.class);
+                Intent inUnoIspFilm=new Intent(this,UnosIspravkaFilma.class);
                 inUnoIspFilm.putExtra("operacija",UnosIspravkaFilma.TIPOPERACIJE_NOVO);
+                inUnoIspFilm.putExtra("id_glumac",this.glumac.getId());
                 startActivity(inUnoIspFilm);
+
                 return super.onOptionsItemSelected(item);
 
 
@@ -114,6 +114,7 @@ public class DetaljiGlumac extends AppCompatActivity {
 
                MySqlGlumac dbglumac=new MySqlGlumac(this,glumac);
                 dbglumac.obrisiGlumac();
+                moveTaskToBack(true);
 
                 return super.onOptionsItemSelected(item);
 

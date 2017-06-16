@@ -139,7 +139,7 @@ public class MySqlFilm extends MyDbHelp {
         try {
 
             QueryBuilder<Film,Integer> query=getDaoFilm().queryBuilder();
-            Where<Film,Integer> where=query.where().idEq(getDaoGlumac(),_glumac);
+            Where<Film,Integer> where=query.where().eq(Film.tFilm_glumac,_glumac);
             filmovi= where.query();
 
 

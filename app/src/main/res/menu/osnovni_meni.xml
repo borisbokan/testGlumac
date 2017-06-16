@@ -7,6 +7,11 @@
         android:title="@string/action_settings"
         app:showAsAction="never" />
 
+    <item
+        android:id="@+id/action_oaplikaciji"
+        android:title="@string/action_oaplikaciji"
+        app:showAsAction="never" />
+
 
     <item
         android:id="@+id/action_osvezi"
