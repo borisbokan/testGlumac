@@ -38,6 +38,9 @@ public class UnosIspravkaGlumac extends AppCompatActivity implements View.OnClic
         tip_ope=getIntent().getIntExtra("operacija",0);
         idGlumac=getIntent().getIntExtra("id_glumac",0);
 
+
+
+
         etxtPrezimeIme=(EditText)findViewById(R.id.etxtPrezime_unosispravka);
         etxtIme=(EditText)findViewById(R.id.etxtIme_unosispravka);
         datumRodjenja=(DatePicker)findViewById(R.id.dpDatumRodjenja_unosispravka);
@@ -45,11 +48,34 @@ public class UnosIspravkaGlumac extends AppCompatActivity implements View.OnClic
         btnSnimi=(Button)findViewById(R.id.btnSnimi_unosispravka);
         btnOdustajem=(Button)findViewById(R.id.btnOdustajem_unosispravka);
 
+        if(tip_ope==TIPOPERACIJE_ISPRAVI && idGlumac!=0){
+
+
+            getGlumacPoId(idGlumac);
+            pripremiZaIspravku();
+        }
+
+
         btnSnimi.setOnClickListener(this);
         btnOdustajem.setOnClickListener(this);
 
     }
 
+
+    private void pripremiZaIspravku() {
+
+        etxtPrezimeIme.setText(this.glumac.getPrezime());
+        etxtIme.setText(this.glumac.getIme());
+
+
+    }
+
+    private void getGlumacPoId(int _id){
+
+        MySqlGlumac dbglumac=new MySqlGlumac(this);
+        this.glumac=dbglumac.getGlumacPoId(_id);
+
+    }
     @Override
     public void onClick(View v) {
 

@@ -49,10 +49,12 @@ public class UnosIspravkaFilma extends AppCompatActivity implements View.OnClick
         idFilm=getIntent().getIntExtra("id_film",0);
         idGlumac=getIntent().getIntExtra("id_glumac",0);
 
-        getGlumacPoId(idGlumac);
+
 
         if(tipOpe==TIPOPERACIJE_ISPRAVI && idFilm!=0){
+
             getFilmPoId(idFilm);
+            getGlumacPoId(idGlumac);
             pripremiZaIspravku();
         }
 

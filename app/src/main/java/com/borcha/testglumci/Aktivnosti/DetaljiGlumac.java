@@ -106,6 +106,7 @@ public class DetaljiGlumac extends AppCompatActivity {
                 Intent inIspravkaGlu=new Intent(this,UnosIspravkaGlumac.class);
                 inIspravkaGlu.putExtra("operacija",UnosIspravkaGlumac.TIPOPERACIJE_ISPRAVI);
                 inIspravkaGlu.putExtra("id_glumac",idGlumac);
+                startActivity(inIspravkaGlu);
 
                 return super.onOptionsItemSelected(item);
 
